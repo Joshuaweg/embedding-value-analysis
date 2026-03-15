@@ -182,6 +182,51 @@ GPT-2 is a clear distributional outlier (SWD ~0.10–0.12 vs all custom models).
 
 ---
 
+## Related Research
+
+Summaries of 16 papers relevant to this project are in [`research/`](research/). Full notes and relevance assessments in each file.
+
+### Value Alignment & Moral Foundations in LLMs
+| Paper | Key Relevance |
+|---|---|
+| Jin et al. (ACL 2025) — *ConVA* | Values are geometrically encoded in LLM activations; activation steering validates the geometry hypothesis |
+| Abdulhai et al. (EMNLP 2024) — *Moral Foundations of LLMs* | Corpus composition drives MFT biases in outputs; closest behavioral prior work |
+| Yu et al. (2026) — *Tracing Moral Foundations in LLMs* | Layer-wise + SAE + causal steering analysis; methodological blueprint for extensions |
+| Simmons (ACL 2023) — *Moral Mimicry* | Defines the null hypothesis: geometry tests whether value patterns are encoded or merely mimicked |
+| Ji et al. (2024) — *MoralBench* | Behavioral MFT benchmark; potential validation target for geometric predictions |
+| Survey (AI & Society 2024) — *MFT and Pre-Trained Language Models* | Field map; confirms the lexicon-to-geometry gap this project addresses |
+
+### Embedding Geometry
+| Paper | Key Relevance |
+|---|---|
+| Marks & Tegmark (2023) — *The Geometry of Truth* | Linear encoding of high-level evaluative properties; foundational precedent |
+| Razzhigaev et al. (EACL 2024) — *The Shape of Learning* | Anisotropy bell curve in decoders; motivates layer-wise analysis |
+| Machina & Mercer (NAACL 2024) — *Anisotropy is Not Inherent* | Anisotropy is trainable; correction may reveal cleaner value structure |
+| Mikolov et al. (ICLR 2013) — *word2vec* | Foundational: semantic content decomposes into linear geometry via corpus statistics |
+
+### Political & Evaluative Stance
+| Paper | Key Relevance |
+|---|---|
+| Kim et al. (2025) — *Linear Representations of Political Perspective* | Strongest methodological parallel: evaluative stance linearly encoded, transferable, causally steerable |
+
+### Distributional Distance & Optimal Transport
+| Paper | Key Relevance |
+|---|---|
+| EMNLP 2023 — *Linear Time Wasserstein with Embedding Selection* | Motivates value-aware SWD using probe-identified foundation directions |
+
+### Mechanistic Interpretability
+| Paper | Key Relevance |
+|---|---|
+| 2025 — *SAEs for Socially-Relevant Concepts* | Sparse autoencoders as complement to linear probes for fine-grained feature identification |
+
+### Representational Similarity & Data Effects
+| Paper | Key Relevance |
+|---|---|
+| ICLR 2024 — *Correcting Biased CKA* | CKA bias in this project's exact sample/dimension regime; validates SWD choice |
+| ICLR 2025 — *Data Selection via Optimal Control* | Corpus composition predictably and fundamentally shapes embedding geometry |
+
+---
+
 ## Next Steps
 
 ### Corpus Expansion
