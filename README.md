@@ -229,6 +229,20 @@ Summaries of 16 papers relevant to this project are in [`research/`](research/).
 
 ## Next Steps
 
+### Immediate Priority: Contextual Embeddings from Middle Layers
+
+The current analysis uses static token embeddings (layer 0), which are trained primarily to reconstruct token co-occurrence statistics. Every relevant paper in the related research converges on the same finding: middle layers carry the richest representational structure for high-level semantic properties in decoder transformers (Razzhigaev et al.; Kim et al.; Yu et al.; Marks & Tegmark).
+
+The modest probe accuracies (24–37%) are ambiguous under the current setup — they could indicate that values are not strongly encoded, or simply that we are measuring at the wrong layer.
+
+**The next step is to extract contextual embeddings from layers 3–4 of the existing trained models and re-run the full analysis. No retraining is required.** Each MFT seed word is run through in-domain context sentences; hidden states are pulled at middle layers and averaged across contexts. The infrastructure for this already partially exists in `src/embeddings.py` (`extract_contextual_embeddings`).
+
+This functions as a falsifiability test before further investment:
+- If middle-layer contextual embeddings show substantially stronger foundation separability (higher probe accuracy, wider Wasserstein distances between models), the approach is validated and corpus expansion is the natural next step
+- If they do not, something more fundamental needs revisiting — architecture depth, corpus size, or the hypothesis itself
+
+**Second immediate priority: anisotropy correction.** Mean-centering embeddings before computing cosine similarity is a one-line change motivated by Machina & Mercer (NAACL 2024). Raw cosine similarities in anisotropic spaces are inflated uniformly, which can obscure real differences between models. Correcting for this before drawing conclusions from the current results is necessary for valid comparison.
+
 ### Corpus Expansion
 - **Utilitarian ethics:** Mill's *Utilitarianism* and *On Liberty* (Project Gutenberg IDs 11224, 34901) — expected to cluster strongly around Fairness and Liberty
 - **Eastern philosophy:** Tao Te Ching (917), Dhammapada (2017) — likely to produce distinctive sanctity geometry not captured by Western texts
